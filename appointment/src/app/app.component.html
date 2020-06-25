@@ -1,0 +1,34 @@
+<div class="col-md-9 user-container" >
+  <h2 style="margin: auto">Car Service Appointment System</h2>
+  <button class="btn btn-success" style="width:100px" (click)="addUser()"> Schedule</button>
+  <br>
+  <table class="table table-striped" *ngIf="showList">
+    <thead>
+    <tr>
+      <th class="hidden">S.no</th>
+      <th>Appointment ID</th>
+      <th>Appointment Time</th>
+      <th>Member ID</th>
+      <th>Facility ID</th>
+      <th>Actions</th>
+      <th></th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr  *ngFor="let user of appointments; let i=index">
+      <td class="hidden">{{i + 1}}</td>
+      <td>{{user.id}}</td>
+      <td>{{user.appointmentSlot}}</td>
+      <td>{{user.memberId}}</td>
+      <td>{{user.facilityId}}</td>
+       <td *ngIf="!user.cancelled"> <button class="btn btn-primary" (click)="editAppointment(user.id,user.memberId)"  style="margin-left: 20px;"> Reschedule</button></td>
+        <td *ngIf="!user.cancelled" ><button class="btn btn-danger" (click)="cancelAppointemnt(user.id,user.memberId)" > Cancel</button></td> 
+        <td *ngIf="user.cancelled" style="color: red;" > <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancelled</b></td> 
+    </tr>
+    </tbody>
+  </table>
+  <h3  *ngIf="!showList" style="margin: auto"><b>Currently, there are no appointments!</b></h3>
+</div>
+
+

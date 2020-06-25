@@ -1,0 +1,20 @@
+<div class="col-md-6 user-container">
+    <h2 class="text-center">{{buttonText}} Appointment</h2>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Appointment Slot:</label>
+        <input type="datetime-local" formControlName="appointmentSlot" placeholder="Slot" name="appointmentSlot" class="form-control" id="appointmentSlot">
+      </div>
+  
+      <div class="form-group">
+        <label for="firstName">Member ID:</label>
+        <input formControlName="memberId" [attr.disabled]="EditForm ? '' : null" placeholder="Member ID" name="memberId" class="form-control" id="memberId">
+      </div>
+      <div class="form-group">
+        <label for="firstName">Facility ID:</label>
+        <input formControlName="facilityId" [attr.disabled]="EditForm ? '' : null" placeholder="Facility ID" name="facilityId" class="form-control" id="facilityId">
+      </div>
+  
+      <button class="btn btn-success" >{{buttonText}}</button>
+    </form>
+  </div>
